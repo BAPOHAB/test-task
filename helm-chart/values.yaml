@@ -1,0 +1,35 @@
+# Default values for test-task chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into templates.
+
+replicaCount: 3
+
+image:
+  repository: bapoha/test-task
+  tag: "latest"
+
+service:
+  port: 8080
+
+message: |
+  <!DOCTYPE html>
+  <head>
+     <title>Test task</title>
+  </head>
+  <body>
+    <center>
+      <h2>This is a Test Task!</h2>
+    </center>
+  </body>
+  </html>
+
+livenessProbe:
+  initialDelaySeconds: 3
+  failureThreshold: 7
+  periodSeconds: 3
+  timeoutSeconds: 3
+startupProbe:
+  initialDelaySeconds: 5
+  failureThreshold: 7
+  periodSeconds: 3
+  timeoutSeconds: 3
